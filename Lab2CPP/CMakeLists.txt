@@ -45,3 +45,32 @@ set_tests_properties(Lab2CPPTest4 PROPERTIES
     PASS_REGULAR_EXPRESSION "^YES"
 )
 
+add_executable(TestList
+    test_list.cpp
+    ../LibraryCPP/list.cpp
+)
+
+target_include_directories(TestList PRIVATE
+    ${CMAKE_SOURCE_DIR}/LibraryCPP
+)
+
+add_test(
+    NAME TestList
+    COMMAND TestList
+)
+
+# Тесты стека
+add_executable(TestStack
+    test_stack.cpp
+    ../LibraryCPP/list.cpp
+    ../LibraryCPP/stack.cpp
+)
+
+target_include_directories(TestStack PRIVATE
+    ${CMAKE_SOURCE_DIR}/LibraryCPP
+)
+
+add_test(
+    NAME TestStack
+    COMMAND TestStack
+)
