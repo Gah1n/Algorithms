@@ -85,3 +85,40 @@ ListItem *list_erase_first(List *list)
 
     return list->first;
 }
+ListItem *list_last(List *list)
+{
+    return list->last;
+}
+
+ListItem *list_item_next(ListItem *item)
+{
+    if (item == nullptr)
+        return nullptr;
+
+    return item->next;
+}
+
+ListItem *list_insert_after(List *list, ListItem *item, Data data)
+{
+    if (item == nullptr)
+        return nullptr;
+
+    ListItem *newItem = new ListItem;
+
+    newItem->data = data;
+    newItem->prev = item;
+    newItem->next = item->next;
+
+    if (item->next != nullptr)
+    {
+        item->next->prev = newItem;
+    }
+    else
+    {
+        list->last = newItem;
+    }
+
+    item->next = newItem;
+
+    return newItem;
+}
