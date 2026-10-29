@@ -1,9 +1,7 @@
 
-add_executable(Lab2CPP
-    main.cpp
-    ../LibraryCPP/list.cpp
-    ../LibraryCPP/stack.cpp
-)
+add_executable(Lab2CPP main.cpp)
+
+target_link_libraries(Lab2CPP PRIVATE LibraryCPP)
 
 target_include_directories(Lab2CPP PRIVATE
     ${CMAKE_SOURCE_DIR}/LibraryCPP
@@ -43,6 +41,15 @@ add_test(
 
 set_tests_properties(Lab2CPPTest4 PROPERTIES
     PASS_REGULAR_EXPRESSION "^YES"
+)
+
+add_test(
+    NAME Lab2CPPTest5
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/test5.txt
+)
+
+set_tests_properties(Lab2CPPTest5 PROPERTIES
+    PASS_REGULAR_EXPRESSION "^NO"
 )
 
 add_executable(TestList
