@@ -52,6 +52,60 @@ set_tests_properties(Lab2CPPTest5 PROPERTIES
     PASS_REGULAR_EXPRESSION "^NO"
 )
 
+add_test(
+    NAME Lab2CPPTest6
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/test6.txt
+)
+
+set_tests_properties(Lab2CPPTest6 PROPERTIES
+    PASS_REGULAR_EXPRESSION "^NO"
+)
+
+add_test(
+    NAME Lab2CPPTest7
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/test7.txt
+)
+
+set_tests_properties(Lab2CPPTest7 PROPERTIES
+    PASS_REGULAR_EXPRESSION "^NO"
+)
+
+add_test(
+    NAME Lab2CPPTest8
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/test8.txt
+)
+
+set_tests_properties(Lab2CPPTest8 PROPERTIES
+    PASS_REGULAR_EXPRESSION "^NO"
+)
+
+add_test(
+    NAME Lab2CPPTest9
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/test9.txt
+)
+
+set_tests_properties(Lab2CPPTest9 PROPERTIES
+    PASS_REGULAR_EXPRESSION "^NO"
+)
+
+add_test(
+    NAME Lab2CPPTest10
+    COMMAND Lab2CPP ${CMAKE_CURRENT_SOURCE_DIR}/missing_file.txt
+)
+
+set_tests_properties(Lab2CPPTest10 PROPERTIES
+    WILL_FAIL TRUE
+)
+
+add_test(
+    NAME Lab2CPPTest11
+    COMMAND Lab2CPP
+)
+
+set_tests_properties(Lab2CPPTest11 PROPERTIES
+    WILL_FAIL TRUE
+)
+
 add_executable(TestList
     test_list.cpp
     ../LibraryCPP/list.cpp
